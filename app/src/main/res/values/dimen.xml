@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_margin">16dp</dimen>
+    <dimen name="layout_padding">5dp</dimen>
+    <dimen name="layout_margin_top">5dp</dimen>
+    <dimen name="text_size_label">16sp</dimen>
+    <dimen name="text_size_value">14sp</dimen>
+    <dimen name="avtar_size">80dp</dimen>
+    <dimen name="ic_detail_size">36dp</dimen>
+</resources>

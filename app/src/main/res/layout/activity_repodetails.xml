@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="items"
+            type="com.xapo.githubrepos.service.model.Items"></variable>
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:orientation="vertical"
+            apps:cardBackgroundColor="@android:color/white"
+            apps:cardCornerRadius="4dp"
+            apps:cardElevation="4dp"
+            apps:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/layout_padding"
+                android:paddingTop="@dimen/layout_padding"
+                android:paddingRight="@dimen/layout_padding">
+
+                <ImageView
+                    android:id="@+id/avtar"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="10dp"></ImageView>
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:text="@{items.owner.login}"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_fullname"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/fullName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{items.fullName}"
+                        android:textSize="@dimen/text_size_value" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_desc"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{items.description}"
+                        android:textSize="@dimen/text_size_value" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_lang"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/language"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{items.language}"
+                        android:textSize="@dimen/text_size_value" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_watchers"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/watchercount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{items.watchers + ` `}"
+                        android:textSize="@dimen/text_size_value" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_stars"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/stars"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{items.stars + ` `}"
+                        android:textSize="@dimen/text_size_value" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_fork"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/fork"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{items.forks + ` `}"
+                        android:textSize="@dimen/text_size_value" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_openissues"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/openissues"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{items.openIssues + ` `}"
+                        android:textSize="@dimen/text_size_value" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/layout_margin_top"
+                        android:text="@string/label_createdat"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/createdAt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@{items.createdAt}"
+                        android:textSize="@dimen/text_size_value" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_updatedat"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/updatedAt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{items.updatedAt}"
+                        android:textSize="@dimen/text_size_value" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_cloneurl"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/cloneUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp"
+                        android:text="@{items.cloneUrl}"
+                        android:textSize="@dimen/text_size_value" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </ScrollView>
+
+</layout>

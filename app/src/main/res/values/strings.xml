@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Kotlin Trending Github Repositiory</string>
+    <string name="label_fullname">Fullname: </string>
+    <string name="label_desc">Description: </string>
+    <string name="label_lang">Language: </string>
+    <string name="label_watchers">Watchers: </string>
+    <string name="label_stars">Stars: </string>
+    <string name="label_fork">Forks: </string>
+    <string name="label_openissues">Open Issues: </string>
+    <string name="label_createdat">Created At: </string>
+    <string name="label_updatedat">Updated At: </string>
+    <string name="label_cloneurl">Clone URL: </string>
+    <string name="menu_account">My Account</string>
+    <string name="menu_settings">Settings</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+
+</resources>
