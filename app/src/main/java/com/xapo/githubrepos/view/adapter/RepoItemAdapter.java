@@ -22,7 +22,7 @@ public class RepoItemAdapter extends PagedListAdapter<Items, RepoItemAdapter.Vie
     private Context mContext;
     private List<? extends Items> repoList;
 
-    public RepoItemAdapter(Context context){
+    public RepoItemAdapter(Context context) {
         super(DIFF_CALLBACK);
         this.mContext = context;
     }
@@ -38,18 +38,15 @@ public class RepoItemAdapter extends PagedListAdapter<Items, RepoItemAdapter.Vie
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Items item = getItem(position);
-        if(item != null)
-        {
+        if (item != null) {
             holder.binding.setItems(item);
-            Glide.with(mContext)
-                    .load(item.getOwner().getAvatar_url())
-                    .into(holder.binding.userAvtar);
-        }else{
+            Glide.with(mContext).load(item.getOwner().getAvatar_url()).into(holder.binding.userAvtar);
+        } else {
             holder.binding.invalidateAll();
         }
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         final RepolistItemBinding binding;
 
         public ViewHolder(@NonNull RepolistItemBinding binding) {
@@ -58,17 +55,16 @@ public class RepoItemAdapter extends PagedListAdapter<Items, RepoItemAdapter.Vie
         }
     }
 
-    private static DiffUtil.ItemCallback<Items> DIFF_CALLBACK =
-        new DiffUtil.ItemCallback<Items>() {
-            @Override
-            public boolean areItemsTheSame(Items oldItem, Items newItem) {
-                return oldItem.getId() == newItem.getId();
-            }
+    private static DiffUtil.ItemCallback<Items> DIFF_CALLBACK = new DiffUtil.ItemCallback<Items>() {
+        @Override
+        public boolean areItemsTheSame(Items oldItem, Items newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
 
-            @Override
-            public boolean areContentsTheSame(Items oldItem, Items newItem) {
-                return oldItem.equals(newItem);
-            }
-        };
+        @Override
+        public boolean areContentsTheSame(Items oldItem, Items newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
 
 }

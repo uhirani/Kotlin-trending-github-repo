@@ -16,16 +16,17 @@ public class RepoDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Items item = (Items) getIntent().getExtras().getParcelable("ItemObj");
+        Items item = getIntent().getExtras().getParcelable("ItemObj");
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(item.getName());
-
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(item !=null ? item.getName(): "");
+        }
         binding = DataBindingUtil.setContentView(this, R.layout.activity_repodetails);
-        binding.setItems(item);
-        Glide.with(this)
-                .load(item.getOwner().getAvatar_url())
-                .into(binding.avtar);
+        if(item != null) {
+            binding.setItems(item);
+            Glide.with(this).load(item.getOwner().getAvatar_url()).into(binding.avtar);
+        }
     }
 
     @Override

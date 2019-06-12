@@ -2,9 +2,11 @@ package com.xapo.githubrepos.datasource;
 
 import android.arch.paging.PageKeyedDataSource;
 import android.support.annotation.NonNull;
+
 import com.xapo.githubrepos.service.model.GithubRepo;
 import com.xapo.githubrepos.service.model.Items;
 import com.xapo.githubrepos.service.repository.GithubRepository;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,7 +27,8 @@ public class RepoDataSource extends PageKeyedDataSource<Integer, Items> {
             @Override
             public void onResponse(Call<GithubRepo> call, Response<GithubRepo> response) {
                 if (response.isSuccessful()) {
-                    callback.onResult(response.body().getItems(), null, FIRST_PAGE + 1);
+                    if(response.body() !=null && response.body().getItems() != null && response.body().getItems().size()>0){
+                        callback.onResult(response.body().getItems(), null, FIRST_PAGE + 1);}
                 }
             }
 
@@ -39,25 +42,6 @@ public class RepoDataSource extends PageKeyedDataSource<Integer, Items> {
 
     @Override
     public void loadBefore(@NonNull final LoadParams<Integer> params, @NonNull final LoadCallback<Integer, Items> callback) {
-//        GithubRepository.getApi()
-//                .getTrendingRepositories("kotlin",params.key)
-//                .enqueue(new Callback<GithubRepo>() {
-//                    @Override
-//                    public void onResponse(Call<GithubRepo> call, Response<GithubRepo> response) {
-//                        //if the current page is greater than one
-//                        //we are decrementing the page number
-//                        //else there is no previous page
-//                        Integer adjacentKey = (params.key > 1) ? params.key - 1 : null;
-//                        if(response.isSuccessful()) {
-//                            callback.onResult(response.body().getItems(), adjacentKey);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<GithubRepo> call, Throwable t) {
-//
-//                    }
-//                });
 
     }
 
@@ -72,7 +56,8 @@ public class RepoDataSource extends PageKeyedDataSource<Integer, Items> {
              public void onResponse(Call<GithubRepo> call, Response<GithubRepo> response) {
                 if (response.isSuccessful()) {
                     int nextKey = (params.key == response.body().getTotalCount()) ? null : params.key + 1;
-                    callback.onResult(response.body().getItems(), nextKey);
+                    if(response.body() !=null && response.body().getItems() != null && response.body().getItems().size()>0){
+                        callback.onResult(response.body().getItems(), nextKey); }
                 }
              }
 

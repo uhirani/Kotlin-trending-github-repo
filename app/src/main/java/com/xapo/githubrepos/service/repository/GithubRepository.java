@@ -8,11 +8,7 @@ import com.google.gson.Gson;
 import com.xapo.githubrepos.service.model.GithubRepo;
 import com.xapo.githubrepos.utility.Constant;
 
-import java.io.IOException;
-
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,20 +26,6 @@ public class GithubRepository {
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addInterceptor(logging);
-
-//        httpClient.addInterceptor(new Interceptor() {
-//            @Override
-//            public okhttp3.Response intercept(Chain chain) throws IOException {
-////                Request original = chain.request();
-////                HttpUrl originalHttpUrl = original.url();
-////                HttpUrl url = originalHttpUrl.newBuilder()
-////                        .build();
-////                Request request = original.newBuilder()
-////                        .url(url).build();
-//                Request.Builder builder = chain.request().newBuilder();
-//                return chain.proceed(builder.build());
-//            }
-//        });
 
         Retrofit mRetrofit = new Retrofit.Builder()
                 .baseUrl(Constant.API_URL)

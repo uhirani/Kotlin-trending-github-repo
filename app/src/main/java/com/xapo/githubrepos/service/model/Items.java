@@ -2,12 +2,9 @@ package com.xapo.githubrepos.service.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v7.util.DiffUtil;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import java.io.Serializable;
 
 public class Items implements Parcelable {
 
@@ -318,25 +315,4 @@ public class Items implements Parcelable {
         dest.writeInt(stars);
         dest.writeString(cloneUrl);
     }
-    //    public static DiffUtil.ItemCallback<Items> DIFF_CALLBACK =
-//            new DiffUtil.ItemCallback<Items>() {
-//                @Override
-//                public boolean areItemsTheSame(Items oldItem, Items newItem) {
-//                    return oldItem.getId() == newItem.getId();
-//                }
-//
-//                @Override
-//                public boolean areContentsTheSame(Items oldItem, Items newItem) {
-//                    return oldItem.equals(newItem);
-//                }
-//            };
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (obj == this)
-//            return true;
-//
-//        Items items = (Items) obj;
-//        return items.getId() == this.getId();
-//    }
 }

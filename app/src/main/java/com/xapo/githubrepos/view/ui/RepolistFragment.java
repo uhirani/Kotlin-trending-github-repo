@@ -9,16 +9,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.xapo.githubrepos.R;
 import com.xapo.githubrepos.databinding.FragmentRepolistBinding;
-import com.xapo.githubrepos.service.model.GithubRepo;
 import com.xapo.githubrepos.service.model.Items;
 import com.xapo.githubrepos.view.adapter.RepoItemAdapter;
-import com.xapo.githubrepos.viewmodel.GithubRepoViewModel;
 import com.xapo.githubrepos.viewmodel.ItemViewModel;
 
 public class RepolistFragment extends Fragment {
@@ -41,33 +39,15 @@ public class RepolistFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-//        GithubRepoViewModel.Factory factory = new GithubRepoViewModel.Factory(getActivity().getApplication());
-//
-//        GithubRepoViewModel viewModel = ViewModelProviders.of(this, factory)
-//                .get(GithubRepoViewModel.class);
-//        binding.setIsLoading(true);
-//        observeViewModel(viewModel);
-
         // getting ItemViewModel
         ItemViewModel itemViewModel = ViewModelProviders.of(this).get(ItemViewModel.class);
         observeItemViewModel(itemViewModel);
         super.onActivityCreated(savedInstanceState);
     }
 
-//    private void observeViewModel(GithubRepoViewModel repoViewModel) {
-//        repoViewModel.getObservableTrendingRepos().observe(this, new Observer<GithubRepo>() {
-//            @Override
-//            public void onChanged(@Nullable GithubRepo githubRepo) {
-//                if (githubRepo != null) {
-//                    binding.setIsLoading(false);
-//                    adapter.setRepoList(githubRepo.getItems());
-//                }
-//            }
-//        });
-//    }
-
     /**
      * Observe RepoItem data and set to adapter
+     *
      * @param itemViewModel
      */
     private void observeItemViewModel(ItemViewModel itemViewModel) {
